@@ -13,6 +13,7 @@ chmod -R 644 /root/.ssh/known_hosts
 mkdir /root/project
 chmod -R 777 /root/project
 cd /root/project && git clone $cloneUrl
+chmod -R 777 *
 if [[ $target =~ ^-?[0-9]+$ ]]; then
    echo Pullrequest
 else
