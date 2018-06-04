@@ -10,10 +10,13 @@ cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys
 echo -e "Host github.com\n\tStrictHostKeyChecking no\n\tIdentityFile /root/.ssh/id_rsa\n\tAddKeysToAgent yes\n" > /root/.ssh/config
 ssh-keyscan github.com > /root/.ssh/known_hosts
 chmod -R 644 /root/.ssh/known_hosts
+
 mkdir /root/project
+chmod -R 777 /root/project
 cd /root/project && git clone $cloneUrl
+
 if [[ $target =~ ^-?[0-9]+$ ]]; then
    echo Pullrequest
 else
-   git checkout $target
+   cd $projectName && git checkout $target
 fi
