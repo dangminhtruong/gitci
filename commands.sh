@@ -16,7 +16,7 @@ chmod -R 777 /root/project
 cd /root/project && git clone $cloneUrl
 
 if [[ $target =~ ^-?[0-9]+$ ]]; then
-   echo Pullrequest
+   cd $projectName && git fetch origin refs/pull/$target/head:framgia-ci && git checkout framgia-ci
 else
    cd $projectName && git checkout $target
 fi
