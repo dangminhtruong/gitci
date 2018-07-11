@@ -28,4 +28,5 @@ fi
 if [[ $cache && "$(ls -A $CACHE_DIR)" ]]; then
     echo "<strong style='color:#6a6b6d;'>Loading from cache...</strong>"
     unzip -qo /root/cache/cache.zip -d /root/project/$projectName
+    chmod -R 777 /root/project/$projectName
 fi
